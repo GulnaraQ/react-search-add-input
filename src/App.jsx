@@ -26,6 +26,7 @@ const App = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
+  // new user add
   const handleOnChange = (e) => {
     setNewUser(e.target.value);
   };
@@ -39,23 +40,23 @@ const App = () => {
     setNewUser("");
   };
 
+  // search user
   const handleSearchChange = (e) => {
     setSearchUser(e.target.value.toLowerCase());
   };
+  const filteredUsers = users.filter((user) =>
+    user.username.toLowerCase().includes(searchUser)
+  );
 
+  //user modal
   const handleUserClick = (user) => {
     setSelectedUser(user);
     setShowModal(true);
   };
-
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedUser(null);
   };
-
-  const filteredUsers = users.filter((user) =>
-    user.username.toLowerCase().includes(searchUser)
-  );
 
   return (
     <div className={mode === "light" ? "bg-[#212121]" : "bg-white"}>
