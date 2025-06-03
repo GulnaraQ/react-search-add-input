@@ -64,7 +64,7 @@ const App = () => {
           Users
         </h1>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mt-[30px]">
           <button
             onClick={setMode}
             className="bg-gray-100 p-2 border-1 w-[70px] border-gray-300 rounded-md cursor-pointer"
@@ -77,7 +77,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="flex gap-5 justify-between my-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-between my-[30px]">
           <div className="flex gap-3">
             <input
               onChange={(e) => handleOnChange(e)}
@@ -93,7 +93,7 @@ const App = () => {
               Add
             </button>
           </div>
-          <div>
+          <div className="flex justify-items-start md:justify-end">
             <input
               type="search"
               placeholder="Search"
@@ -104,7 +104,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-[30px] duration-500">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-[30px] duration-500">
           {filteredUsers.map((user) => {
             return (
               <div
