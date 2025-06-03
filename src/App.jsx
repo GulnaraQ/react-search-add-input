@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useMode from "./Store/ModeStore";
+import { FaEye } from "react-icons/fa";
+import useView from "./Store/ViewsStore";
 
 const App = () => {
   const { mode, setMode } = useMode();
+  const { viewCount, increeseCount } = useView();
+
+  useEffect(() => {
+    increeseCount();
+  }, []);
 
   const [users, setUsers] = useState([
     { id: 1, username: "Thecodefather" },
@@ -57,13 +64,17 @@ const App = () => {
           Users
         </h1>
 
-        <div>
+        <div className="flex items-center gap-3">
           <button
             onClick={setMode}
-            className="bg-gray-100 p-2 border-1 w-[70px] border-gray-300 rounded-md"
+            className="bg-gray-100 p-2 border-1 w-[70px] border-gray-300 rounded-md cursor-pointer"
           >
             {mode}
           </button>
+          <div className="flex gap-2 items-center justify-center bg-gray-100 p-2 border-1 w-[70px] border-gray-300 rounded-md ">
+            <FaEye className="text-[25px] text-[#DB7093]" />
+            {viewCount}
+          </div>
         </div>
 
         <div className="flex gap-5 justify-between my-[30px]">
